@@ -126,7 +126,7 @@ public class GoalScorerAdapter extends RecyclerView.Adapter<GoalScorerAdapter.Ca
     }
     private void showPopupWindow(View view,int position) {
         PopupMenu popup = new PopupMenu(mContext, view);
-        String url = "http://www.kilincglobal.net/Project/Photos/" + footballerList.get(position).getTeams().getTeams_Photo();
+        String url = URL + footballerList.get(position).getTeams().getTeams_Photo();
 
 
         try {

@@ -136,8 +136,8 @@ public class FixtureAdapterResult extends RecyclerView.Adapter<FixtureAdapterRes
 
 
 
-                String url = "http://www.kilincglobal.net/Project/Photos/" + fixture.getTeams().getTeams_Photo();
-                String url2 = "http://www.kilincglobal.net/Project/Photos/" + fixture.getTeams2().getTeams_Photo();
+                String url = URL + fixture.getTeams().getTeams_Photo();
+                String url2 = URL + fixture.getTeams2().getTeams_Photo();
 
                 Picasso.with(mContext)
                         .load(url)

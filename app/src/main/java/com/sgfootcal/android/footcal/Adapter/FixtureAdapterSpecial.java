@@ -257,8 +257,8 @@ public class FixtureAdapterSpecial extends RecyclerView.Adapter<FixtureAdapterSp
 
                     View alert_tasarim = inflater.inflate(R.layout.alerttasarimcalendar, null);
 
-                    String url = "http://www.kilincglobal.net/Project/Photos/" + fixture.getTeams().getTeams_Photo();
-                    String url2 = "http://www.kilincglobal.net/Project/Photos/" + fixture.getTeams2().getTeams_Photo();
+                    String url = URL + fixture.getTeams().getTeams_Photo();
+                    String url2 = URL + fixture.getTeams2().getTeams_Photo();
 
                     final TextView textViewTeams1 = (TextView) alert_tasarim.findViewById(R.id.firstteam);
                     final TextView textViewTeams2 = (TextView) alert_tasarim.findViewById(R.id.secondteam);

@@ -79,7 +79,7 @@ public class LeaguesDetailsActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
-//        url = "http://www.kilincglobal.net/Project/Photos/" + leagues.getLeagues_Photo();
+//        url = URL + leagues.getLeagues_Photo();
 
         teamsDaoInterfae = ApiUtils.getTeamsDaoInterface();
 
