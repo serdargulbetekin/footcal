@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fav"
+        android:icon="@mipmap/a1"
+        android:title="Favorilerimden Çıkar"/>
+
+    <item
+        android:id="@+id/calendar"
+        android:icon="@mipmap/a2"
+        android:title="Takvime Ekle"
+        />
+    <item
+        android:id="@+id/details"
+        android:icon="@mipmap/a3"
+        android:title="Maç Detayı"
+        />
+    <item
+        android:id="@+id/leagues"
+        android:icon="@mipmap/a4"
+        android:title="Lige Git" />
+    <item
+        android:id="@+id/firstteam"
+        android:icon="@mipmap/a5"
+        android:title="Ev Sahibi Takım" />
+    <item
+        android:id="@+id/secondteam"
+        android:icon="@mipmap/a6"
+        android:title="Misafir Takım"/>
+</menu>

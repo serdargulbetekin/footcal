@@ -1,0 +1,109 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:id="@+id/CoordinatorLayout">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+
+
+    <TextView
+        android:id="@+id/textViewTeamsPoint"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+
+        android:background="@color/White"
+        android:gravity="start"
+        android:text="P"
+        android:textAlignment="gravity"
+        android:textColor="@color/Blue"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <TextView
+        android:id="@+id/textViewTeamsAverage"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="25dp"
+
+        android:background="@color/White"
+        android:gravity="start"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textColor="@color/Blue"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <TextView
+        android:id="@+id/textViewTeamsGA"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="55dp"
+
+        android:background="@color/White"
+        android:gravity="start"
+        android:text="YG"
+        android:textAlignment="gravity"
+        android:textColor="@color/Blue"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <TextView
+        android:id="@+id/textViewTeamsGF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="80dp"
+
+        android:background="@color/White"
+        android:gravity="start"
+        android:text="AG"
+        android:textAlignment="gravity"
+        android:textColor="@color/Blue"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/textViewTeamsWeek"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="105dp"
+
+        android:background="@color/White"
+        android:gravity="start"
+        android:text="H"
+        android:textAlignment="gravity"
+        android:textColor="@color/Blue"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/PointTableRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

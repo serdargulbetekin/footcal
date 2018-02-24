@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+        <menu>
+            <item
+                android:id="@+id/favroitesnavigation"
+                android:checked="true"
+                android:title="Favorilerim" >
+            </item>
+
+        </menu>
+
+
+
+        <menu>
+            <item
+                android:id="@+id/leaguesnavigationdrawer"
+                android:checked="true"
+                android:title="Süper Lig" >
+            </item>
+
+        </menu>
+
+
+
+
+</menu>

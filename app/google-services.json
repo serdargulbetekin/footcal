@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "821160715485",
+    "firebase_url": "https://footcal-b0369.firebaseio.com",
+    "project_id": "footcal-b0369",
+    "storage_bucket": "footcal-b0369.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821160715485:android:7de881f6110d26e0",
+        "android_client_info": {
+          "package_name": "com.sgfootcal.android.footcal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "821160715485-r2knislbfdv8eqlpvvp2c2i526v6hegp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sgfootcal.android.footcal",
+            "certificate_hash": "792dbb0f164c3bf7f9255a03fd22ab7c12e5d675"
+          }
+        },
+        {
+          "client_id": "821160715485-h1fk9jgvf7n4a1t1sa9b527tclmqirkj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClonEPzfHZWcQHvBaP7cGWWuWHoF2vMBU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "821160715485-h1fk9jgvf7n4a1t1sa9b527tclmqirkj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

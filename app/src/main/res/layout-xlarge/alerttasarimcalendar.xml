@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+    <TextView
+        android:id="@+id/firstteam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/firstteamImage"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="10dp"
+
+        android:layout_weight="1"
+        android:text="TextView"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/secondteam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/secondteamImage"
+        android:layout_alignStart="@+id/secondteamImage"
+        android:layout_below="@+id/secondteamImage"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/vs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/secondteam"
+        android:layout_alignTop="@+id/secondteam"
+        android:layout_centerHorizontal="true"
+        android:text="VS"
+        android:textSize="30dp" />
+
+    <ImageView
+        android:id="@+id/firstteamImage"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/firstteam"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/firstteam"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/secondteamImage"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <EditText
+        android:id="@+id/extramail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/firstteam"
+        android:layout_marginTop="15dp"
+        android:drawableLeft="@drawable/mail"
+        android:ems="10"
+        android:hint="Davet Maili(Opsiyonel)"
+        android:inputType="textPersonName"
+        android:textSize="25dp" />
+
+
+</RelativeLayout>
