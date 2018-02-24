@@ -56,7 +56,7 @@ public class FavoriteFixtureAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     private  NotificationCompat.Builder notificationCreater ;
     private ImageView img;
     private static final int EMPTY_VIEW = 10;
-
+    private final String URL = "http://api.footcal.net/Photos/";
 
 
     public FavoriteFixtureAdapter(Context mContext, List<Fixture> fixtureFavList, FixtureDaoInterface fixtureDaoInterface) {
@@ -126,8 +126,8 @@ public class FavoriteFixtureAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         if (holder instanceof ViewHolder){
             final Fixture fixture = fixtureFavList.get(position);
             final ViewHolder vh = (ViewHolder) holder;
-            final String url = "http://www.kilincglobal.net/Project/Photos/" + fixture.getTeams().getTeams_Photo();
-            final String url2 = "http://www.kilincglobal.net/Project/Photos/" + fixture.getTeams2().getTeams_Photo();
+            final String url = URL + fixture.getTeams().getTeams_Photo();
+            final String url2 = URL + fixture.getTeams2().getTeams_Photo();
 
 
             vh.textViewDate.setText(String.valueOf(fixture.getFixture_Date()));

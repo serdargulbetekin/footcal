@@ -51,7 +51,7 @@ public class TeamsDetailsActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private TextView titleLeague;
-
+    private final String URL = "http://api.footcal.net/Photos/";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +75,7 @@ public class TeamsDetailsActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
-        url = "http://www.kilincglobal.net/Project/Photos/" + teams.getTeams_Photo();
+        url = URL + teams.getTeams_Photo();
 
         teamsDaoInterfae = ApiUtils.getTeamsDaoInterface();
 

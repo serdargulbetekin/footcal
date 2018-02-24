@@ -31,7 +31,7 @@ public class FixtureMatchDetails extends AppCompatActivity {
     private ImageView imageViewTeams,imageViewTeams2;
     private String url,url2,url3;
     private TextView titleLeague;
-
+    private final String URL = "http://api.footcal.net/Photos/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +81,9 @@ public class FixtureMatchDetails extends AppCompatActivity {
 
 
 
-        url = "http://www.kilincglobal.net/Project/Photos/" + fixture.getLeagues().getLeagues_Photo();
-        url2 = "http://www.kilincglobal.net/Project/Photos/" + fixture.getTeams().getTeams_Photo();
-        url3 = "http://www.kilincglobal.net/Project/Photos/" + fixture.getTeams2().getTeams_Photo();
+        url = URL + fixture.getLeagues().getLeagues_Photo();
+        url2 = URL + fixture.getTeams().getTeams_Photo();
+        url3 = URL + fixture.getTeams2().getTeams_Photo();
         fixtureDaoInterface = ApiUtils.getFixtureDaoInterface();
 
 

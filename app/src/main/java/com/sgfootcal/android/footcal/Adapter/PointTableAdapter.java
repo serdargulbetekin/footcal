@@ -30,7 +30,7 @@ public class PointTableAdapter extends RecyclerView.Adapter<PointTableAdapter.Ca
     private Context mContext;
     private List<Teams> teamsList;
     private SharedPreferences mSharedPrefs;
-
+    private final String URL = "http://api.footcal.net/Photos/";
 
     public PointTableAdapter(Context mContext, List<Teams> teamsList) {
         this.mContext = mContext;
@@ -80,7 +80,7 @@ public class PointTableAdapter extends RecyclerView.Adapter<PointTableAdapter.Ca
         holder.textViewAverage.setText(Integer.toString(c));
         holder.textViewNumber.setText(teams.getTeams_City() + " - ");
 
-        String url = "http://www.kilincglobal.net/Project/Photos/" + teams.getTeams_Photo();
+        String url = URL + teams.getTeams_Photo();
 
         Picasso.with(mContext)
                 .load(url)

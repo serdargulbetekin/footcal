@@ -46,7 +46,7 @@ public class FixtureAdapterResult extends RecyclerView.Adapter<FixtureAdapterRes
     private FixtureDaoInterface fixtureDaoInterface;
     static int countExistenceControl=0;
     private static final int EMPTY_VIEW = 10;
-
+    private final String URL = "http://api.footcal.net/Photos/";
     private TextView firstTeamName,secondTeamName,firstTeamRR,secondteamRR;
     private ImageView firstTeamImage,secondTeamImage,btnCancel;
 
@@ -95,8 +95,8 @@ public class FixtureAdapterResult extends RecyclerView.Adapter<FixtureAdapterRes
 
 
 
-        String url = "http://www.kilincglobal.net/Project/Photos/" + fixture.getTeams().getTeams_Photo();
-        String url2 = "http://www.kilincglobal.net/Project/Photos/" + fixture.getTeams2().getTeams_Photo();
+        String url = URL + fixture.getTeams().getTeams_Photo();
+        String url2 = URL + fixture.getTeams2().getTeams_Photo();
         Picasso.with(mContext)
                 .load(url)
                 .into(holder.imageViewTeams);

@@ -30,7 +30,7 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.CardViewTasa
     private Context mContext;
     private List<Teams> teamsList;
     private SharedPreferences mSharedPrefs;
-
+    private final String URL = "http://api.footcal.net/Photos/";
 
     public TeamsAdapter(Context mContext, List<Teams> teamsList) {
         this.mContext = mContext;
@@ -65,7 +65,7 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.CardViewTasa
         holder.textViewTeamsName.setText(String.valueOf(teams.getTeams_Name()));
 
 
-        String url = "http://www.kilincglobal.net/Project/Photos/" + teams.getTeams_Photo();
+        String url = URL+ teams.getTeams_Photo();
 
         Picasso.with(mContext)
                 .load(url)

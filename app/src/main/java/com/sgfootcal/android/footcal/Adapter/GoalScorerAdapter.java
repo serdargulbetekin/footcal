@@ -42,7 +42,7 @@ public class GoalScorerAdapter extends RecyclerView.Adapter<GoalScorerAdapter.Ca
     private FootballerDaoInterface footballerDaoInterface;
     static int countExistenceControl=0;
     private static final int EMPTY_VIEW = 10;
-
+    private final String URL = "http://api.footcal.net/Photos/";
     public GoalScorerAdapter(Context mContext, List<Footballer> footballers) {
         this.mContext = mContext;
         this.footballerList = footballers;
@@ -87,7 +87,7 @@ public class GoalScorerAdapter extends RecyclerView.Adapter<GoalScorerAdapter.Ca
 
 
 
-        String url = "http://www.kilincglobal.net/Project/Photos/" + footballer.getTeams().getTeams_Photo();
+        String url = URL + footballer.getTeams().getTeams_Photo();
 
 
         Picasso.with(mContext)

@@ -31,7 +31,7 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.CardView
     private List<Leagues> leaguesList;
     private LeaguesDaoInterface soundsDaoInterface;
     private SharedPreferences mSharedPrefs;
-
+    private final String URL = "http://api.footcal.net/Photos/";
 
 
     public LeaguesAdapter(Context mContext, List<Leagues> leaguesList, LeaguesDaoInterface soundsDaoInterface) {
@@ -72,7 +72,7 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.CardView
 
 
 
-        final String url = "http://www.kilincglobal.net/Project/Photos/"+leagues.getLeagues_Photo();
+        final String url = URL +leagues.getLeagues_Photo();
 
         holder.textViewCharacterName.setText(leagues.getLeagues_Name());
 

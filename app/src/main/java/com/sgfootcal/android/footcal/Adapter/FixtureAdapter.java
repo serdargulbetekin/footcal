@@ -59,6 +59,7 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureAdapter.CardView
     static int countExistenceControl=0;
     private static final int EMPTY_VIEW = 10;
     private FixtureResult fixtureResult;
+    private final String URL = "http://api.footcal.net/Photos/";
 
     public FixtureAdapter(Context mContext, List<Fixture> fixtures) {
         this.mContext = mContext;
@@ -114,8 +115,8 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureAdapter.CardView
 
 
 
-        String url = "http://www.kilincglobal.net/Project/Photos/" + fixture.getTeams().getTeams_Photo();
-        String url2 = "http://www.kilincglobal.net/Project/Photos/" + fixture.getTeams2().getTeams_Photo();
+        String url = URL + fixture.getTeams().getTeams_Photo();
+        String url2 = URL + fixture.getTeams2().getTeams_Photo();
         Picasso.with(mContext)
                 .load(url)
                 .into(holder.imageViewTeams);

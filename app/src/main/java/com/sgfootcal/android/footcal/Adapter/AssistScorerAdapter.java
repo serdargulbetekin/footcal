@@ -43,7 +43,7 @@ public class AssistScorerAdapter extends RecyclerView.Adapter<AssistScorerAdapte
     private FootballerDaoInterface footballerDaoInterface;
     static int countExistenceControl = 0;
     private static final int EMPTY_VIEW = 10;
-
+    private final String URL = "http://api.footcal.net/Photos/";
     public AssistScorerAdapter(Context mContext, List<Footballer> footballers) {
         this.mContext = mContext;
         this.footballerList = footballers;
@@ -85,7 +85,7 @@ public class AssistScorerAdapter extends RecyclerView.Adapter<AssistScorerAdapte
 
 
 
-        String url = "http://www.kilincglobal.net/Project/Photos/" + footballer.getTeams().getTeams_Photo();
+        String url = URL + footballer.getTeams().getTeams_Photo();
 
 
         Picasso.with(mContext)

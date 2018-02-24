@@ -6,7 +6,7 @@ package com.sgfootcal.android.footcal.Internet;
 
 public class ApiUtils {
 
-    public static final String BASE_URL = "http://www.kilincglobal.net/Project/";
+    public static final String BASE_URL = "http://api.footcal.net/";
 
 
     public static LeaguesDaoInterface getLeaguesDaoInterface() {
