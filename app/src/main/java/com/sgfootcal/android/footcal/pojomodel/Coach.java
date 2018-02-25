@@ -20,10 +20,10 @@ public class Coach implements Serializable {
     private String Coach_Name;
     @SerializedName("Team_Id")
     @Expose
-    private Teams Teams;
+    private com.sgfootcal.android.footcal.pojomodel.Teams Teams;
     @SerializedName("Country_Id")
     @Expose
-    private Country Country;
+    private com.sgfootcal.android.footcal.pojomodel.Country Country;
 
     public String getCoach_Id() {
         return Coach_Id;

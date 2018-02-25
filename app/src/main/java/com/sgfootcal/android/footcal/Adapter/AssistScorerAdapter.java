@@ -83,6 +83,19 @@ public class AssistScorerAdapter extends RecyclerView.Adapter<AssistScorerAdapte
         holder.textViewNumber.setText(footballer.getFootballer_Id() + " - ");
         holder.textViewTeamName.setText(footballer.getTeams().getTeams_Name());
 
+        /*
+        if (footballer.getAssistScore_Id().equals("11")){
+
+            holder.textViewFootballerName.setBackgroundColor(mContext.getResources().getColor(R.color.red));
+
+            holder.textViewGoalOrAssist.setBackgroundColor(Color.GRAY);
+            holder.textViewNumber.setBackgroundColor(Color.GRAY);
+            holder.textViewTeamName.setBackgroundColor(Color.GRAY);
+            holder.imageViewTeams.setBackgroundColor(Color.GRAY);
+            holder.cardViewGoalOrAssist.setCardBackgroundColor(Color.GRAY);
+
+    }
+         */
 
 
         String url = URL + footballer.getTeams().getTeams_Photo();

@@ -22,19 +22,19 @@ public class Fixture implements Serializable{
     private String Fixture_Hour;
     @SerializedName("Teams")
     @Expose
-    private Teams Teams;
+    private com.sgfootcal.android.footcal.pojomodel.Teams Teams;
     @SerializedName("Teams2")
     @Expose
-    private Teams Teams2;
+    private com.sgfootcal.android.footcal.pojomodel.Teams Teams2;
     @SerializedName("League")
     @Expose
-    private Leagues Leagues;
+    private com.sgfootcal.android.footcal.pojomodel.Leagues Leagues;
     @SerializedName("Referee")
     @Expose
-    private Referee Referee;
+    private com.sgfootcal.android.footcal.pojomodel.Referee Referee;
     @SerializedName("Result")
     @Expose
-    private FixtureResult FixtureResult;
+    private com.sgfootcal.android.footcal.pojomodel.FixtureResult FixtureResult;
 
     public String getFixture_Id() {
         return Fixture_Id;

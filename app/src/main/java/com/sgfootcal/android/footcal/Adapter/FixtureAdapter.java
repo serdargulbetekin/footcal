@@ -243,7 +243,12 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureAdapter.CardView
                             Toast.makeText(mContext, fixture.getTeams().getTeams_Name() + "-" +fixture.getTeams2().getTeams_Name() + " zaten Favorilerimde mevcut.", Toast.LENGTH_SHORT).show();
 
                             countExistenceControl = 0;
-                        } else {
+                        }
+                        else if(!fixture.getFixtureResult().getFirstTeam_Goal().equals("-")){
+                            Toast.makeText(mContext, fixture.getTeams().getTeams_Name() + "-" +fixture.getTeams2().getTeams_Name() + " maçı oynandı.Favorilere ekleyemezsiniz.", Toast.LENGTH_SHORT).show();
+
+                        }
+                        else {
                             Toast.makeText(mContext, fixture.getTeams().getTeams_Name() + "-" +fixture.getTeams2().getTeams_Name() + " Favorilerime eklendi!", Toast.LENGTH_SHORT).show();
 
                             addToFavFixture(fixture.getFixture_Date(), fixture.getFixture_Day(), fixture.getFixture_Hour(),
@@ -259,58 +264,63 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureAdapter.CardView
 
 
                 case calendar:
+                         if(!fixture.getFixtureResult().getFirstTeam_Goal().equals("-")){
+                    Toast.makeText(mContext, fixture.getTeams().getTeams_Name() + "-" +fixture.getTeams2().getTeams_Name() + " maçı oynandı.Takvim'e ekleyemezsiniz.", Toast.LENGTH_SHORT).show();
+
+                }
+                else {
 
 
-                    LayoutInflater inflater = LayoutInflater.from(mContext);
+                             LayoutInflater inflater = LayoutInflater.from(mContext);
 
-                    View alert_tasarim = inflater.inflate(R.layout.alerttasarimcalendar, null);
+                             View alert_tasarim = inflater.inflate(R.layout.alerttasarimcalendar, null);
 
-                    String url = URL + fixture.getTeams().getTeams_Photo();
-                    String url2 = URL + fixture.getTeams2().getTeams_Photo();
+                             String url = URL + fixture.getTeams().getTeams_Photo();
+                             String url2 = URL + fixture.getTeams2().getTeams_Photo();
 
-                    final TextView textViewTeams1 = (TextView) alert_tasarim.findViewById(R.id.firstteam);
-                    final TextView textViewTeams2 = (TextView) alert_tasarim.findViewById(R.id.secondteam);
-                    final ImageView imageViewTeams = (ImageView) alert_tasarim.findViewById(R.id.firstteamImage);
-                    final ImageView imageViewTeams2 = (ImageView) alert_tasarim.findViewById(R.id.secondteamImage);
-                    final EditText editTextExtraMail = (EditText) alert_tasarim.findViewById(R.id.extramail);
+                             final TextView textViewTeams1 = (TextView) alert_tasarim.findViewById(R.id.firstteam);
+                             final TextView textViewTeams2 = (TextView) alert_tasarim.findViewById(R.id.secondteam);
+                             final ImageView imageViewTeams = (ImageView) alert_tasarim.findViewById(R.id.firstteamImage);
+                             final ImageView imageViewTeams2 = (ImageView) alert_tasarim.findViewById(R.id.secondteamImage);
+                             final EditText editTextExtraMail = (EditText) alert_tasarim.findViewById(R.id.extramail);
 
-                    textViewTeams1.setText(fixture.getTeams().getTeams_Name());
-                    textViewTeams2.setText(fixture.getTeams2().getTeams_Name());
-                    Picasso.with(mContext)
-                            .load(url)
-                            .into(imageViewTeams);
+                             textViewTeams1.setText(fixture.getTeams().getTeams_Name());
+                             textViewTeams2.setText(fixture.getTeams2().getTeams_Name());
+                             Picasso.with(mContext)
+                                     .load(url)
+                                     .into(imageViewTeams);
 
-                    Picasso.with(mContext)
-                            .load(url2)
-                            .into(imageViewTeams2);
+                             Picasso.with(mContext)
+                                     .load(url2)
+                                     .into(imageViewTeams2);
 
-                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+                             AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
 
-                    alertDialog.setMessage("Calendar(Takvim)-Sync");
+                             alertDialog.setMessage("Calendar(Takvim)-Sync");
 
-                    alertDialog.setView(alert_tasarim);
+                             alertDialog.setView(alert_tasarim);
 
-                    alertDialog.setPositiveButton("Senkronize Et", new DialogInterface.OnClickListener() {
+                             alertDialog.setPositiveButton("Senkronize Et", new DialogInterface.OnClickListener() {
 
-                        @Override
-                        public void onClick(DialogInterface arg0, int arg1) {
-                            String months[] = {"Ocak","Şubat","Mart", "Nisan","Mayıs","Haziran", "Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"};
+                                 @Override
+                                 public void onClick(DialogInterface arg0, int arg1) {
+                                     String months[] = {"Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"};
 
-                            String temp = fixture.getFixture_Date().toString();
-                            temp = temp.substring(temp.indexOf(' ') + 1 , temp.length());//Ay ve Yıl
-                           // Toast.makeText(mContext,temp,Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(mContext,temp.substring(0,temp.indexOf(' ')),Toast.LENGTH_SHORT).show();
-                            String month = temp.substring(0,temp.indexOf(' '));//Ay
-                            temp = temp.substring(temp.indexOf(' ') + 1  , temp.length());
-                            temp = temp.substring(temp.indexOf(' ') + 1  , temp.length());//Yıl
-                            //Toast.makeText(mContext,temp,Toast.LENGTH_SHORT).show();
-                            int a =0;
+                                     String temp = fixture.getFixture_Date().toString();
+                                     temp = temp.substring(temp.indexOf(' ') + 1, temp.length());//Ay ve Yıl
+                                     // Toast.makeText(mContext,temp,Toast.LENGTH_SHORT).show();
+                                     //Toast.makeText(mContext,temp.substring(0,temp.indexOf(' ')),Toast.LENGTH_SHORT).show();
+                                     String month = temp.substring(0, temp.indexOf(' '));//Ay
+                                     temp = temp.substring(temp.indexOf(' ') + 1, temp.length());
+                                     temp = temp.substring(temp.indexOf(' ') + 1, temp.length());//Yıl
+                                     //Toast.makeText(mContext,temp,Toast.LENGTH_SHORT).show();
+                                     int a = 0;
 
-                            for(int i=0 ;i<12;i++){
-                                if(months[i].equals(month)){
-                                    a=i;
-                                }
-                            }
+                                     for (int i = 0; i < 12; i++) {
+                                         if (months[i].equals(month)) {
+                                             a = i;
+                                         }
+                                     }
 
 /*
                             Uri calendarUri = CalendarContract.CONTENT_URI
@@ -322,87 +332,73 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureAdapter.CardView
                             Toast.makeText(mContext,"Day:" + fixture.getFixture_Date().substring(0,fixture.getFixture_Date().indexOf(' ')),Toast.LENGTH_SHORT).show();
                             Toast.makeText(mContext,"Month:" + Integer.toString(a),Toast.LENGTH_SHORT).show();
                             Toast.makeText(mContext,"Year:" + temp,Toast.LENGTH_SHORT).show();*/
-                            Calendar calInst = Calendar.getInstance();
+                                     Calendar calInst = Calendar.getInstance();
 
-                            calInst.set(Integer.parseInt(temp),
-                                    a,
-                                    Integer.parseInt(fixture.getFixture_Date().substring(0,fixture.getFixture_Date().indexOf(' '))),
-                                    Integer.parseInt(fixture.getFixture_Hour().substring(0,2)),
-                                    00);
+                                     calInst.set(Integer.parseInt(temp),
+                                             a,
+                                             Integer.parseInt(fixture.getFixture_Date().substring(0, fixture.getFixture_Date().indexOf(' '))),
+                                             Integer.parseInt(fixture.getFixture_Hour().substring(0, 2)),
+                                             00);
 
-                            long startTime = calInst.getTimeInMillis();
+                                     long startTime = calInst.getTimeInMillis();
 
-                            Calendar endCal = Calendar.getInstance();
-                            endCal.set(2017,
-                                    a,
-                                    Integer.parseInt(fixture.getFixture_Date().substring(0,fixture.getFixture_Date().indexOf(' '))),
-                                    Integer.parseInt(fixture.getFixture_Hour().substring(0,2) + 2),
-                                    00);
-                            long endTime = endCal.getTimeInMillis();
+                                     Calendar endCal = Calendar.getInstance();
+                                     endCal.set(2017,
+                                             a,
+                                             Integer.parseInt(fixture.getFixture_Date().substring(0, fixture.getFixture_Date().indexOf(' '))),
+                                             Integer.parseInt(fixture.getFixture_Hour().substring(0, 2) + 2),
+                                             00);
+                                     long endTime = endCal.getTimeInMillis();
 
-                            Intent intent = new Intent(Intent.ACTION_INSERT);
-                            intent.setData(CalendarContract.Events.CONTENT_URI);
-                            intent.putExtra(CalendarContract.Calendars.CALENDAR_COLOR, Color.RED);
-                            intent.putExtra(CalendarContract.Events.DESCRIPTION,
-                                   ("Tarih:" + fixture.getFixture_Date()+
-                                           "\nGün:" + fixture.getFixture_Day()+
-                                           "\nSaat:" + fixture.getFixture_Hour()+
-                                           "\nHakem:" + fixture.getReferee().getReferee_Name()+
-                                           "\nLig:" + fixture.getLeagues().getLeagues_Name()));
-                            intent.putExtra(CalendarContract.Events.CALENDAR_COLOR,fixture.getFixture_Date());
-                            intent.putExtra(CalendarContract.Events.TITLE, fixture.getTeams().getTeams_Name() + " vs " + fixture.getTeams2().getTeams_Name());
-                            //intent.putExtra(CalendarContract.Events.ALL_DAY, true);
-                            intent.putExtra(CalendarContract.Events.EVENT_LOCATION,fixture.getTeams().getTeams_Staidum() + " " + fixture.getTeams().getTeams_City() + " " + fixture.getTeams().getTeam_Country().getCountry_Name());
-                            intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,startTime);
-                            intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,endTime);/*
+                                     Intent intent = new Intent(Intent.ACTION_INSERT);
+                                     intent.setData(CalendarContract.Events.CONTENT_URI);
+                                     intent.putExtra(CalendarContract.Calendars.CALENDAR_COLOR, Color.RED);
+                                     intent.putExtra(CalendarContract.Events.DESCRIPTION,
+                                             ("Tarih:" + fixture.getFixture_Date() +
+                                                     "\nGün:" + fixture.getFixture_Day() +
+                                                     "\nSaat:" + fixture.getFixture_Hour() +
+                                                     "\nHakem:" + fixture.getReferee().getReferee_Name() +
+                                                     "\nLig:" + fixture.getLeagues().getLeagues_Name()));
+                                     intent.putExtra(CalendarContract.Events.CALENDAR_COLOR, fixture.getFixture_Date());
+                                     intent.putExtra(CalendarContract.Events.TITLE, fixture.getTeams().getTeams_Name() + " vs " + fixture.getTeams2().getTeams_Name());
+                                     //intent.putExtra(CalendarContract.Events.ALL_DAY, true);
+                                     intent.putExtra(CalendarContract.Events.EVENT_LOCATION, fixture.getTeams().getTeams_Staidum() + " " + fixture.getTeams().getTeams_City() + " " + fixture.getTeams().getTeam_Country().getCountry_Name());
+                                     intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTime);
+                                     intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime);/*
                             intent.putExtra(CalendarContract.Events.STATUS, 1);
                             intent.putExtra(CalendarContract.Events.VISIBLE, 0);
                             intent.putExtra(CalendarContract.Events.HAS_ALARM, 1);*/
 
-                            //intent.putExtra(CalendarContract.Events.DTSTART,fixture.getFixture_Date());
-                          //  intent.putExtra(CalendarContract.,fixture.getFixture_Date());
-;/*
+                                     //intent.putExtra(CalendarContract.Events.DTSTART,fixture.getFixture_Date());
+                                     //  intent.putExtra(CalendarContract.,fixture.getFixture_Date());
+                                     ;/*
                             intent.putExtra(
                                     CalendarContract.EXTRA_EVENT_END_TIME,
                                     cal.getTime().getTime() + 600000);*/
 
 
-                            intent.putExtra( Intent.EXTRA_EMAIL,editTextExtraMail.getText().toString());
-                            mContext.startActivity( intent);
+                                     intent.putExtra(Intent.EXTRA_EMAIL, editTextExtraMail.getText().toString());
+                                     mContext.startActivity(intent);
 
-                        }
-                    });
-
-
-                    alertDialog.setNegativeButton("İptal", new DialogInterface.OnClickListener() {
-
-                        @Override
-                        public void onClick(DialogInterface arg0, int arg1) {
-                            // TODO Auto-generated method stub
-
-                            Toast.makeText(mContext, "Senkronizasyon iptal edildi!", Toast.LENGTH_SHORT).show();
+                                 }
+                             });
 
 
-                        }
-                    });
+                             alertDialog.setNegativeButton("İptal", new DialogInterface.OnClickListener() {
 
-                    alertDialog.create().show();
+                                 @Override
+                                 public void onClick(DialogInterface arg0, int arg1) {
+                                     // TODO Auto-generated method stub
+
+                                     Toast.makeText(mContext, "Senkronizasyon iptal edildi!", Toast.LENGTH_SHORT).show();
 
 
-/*
-                    Intent intent = new Intent(mContext, SeasonsDetails.class);
-                    intent.putExtra("Characters2", sounds);
+                                 }
+                             });
 
-                    mSharedPrefs = mContext.getSharedPreferences("Characters2", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = mSharedPrefs.edit();
+                             alertDialog.create().show();
+                         }
 
-                    Gson gson = new Gson();
-                    String json = gson.toJson(sounds);
-                    editor.putString("CharactersObject2", json);
-                    editor.commit();
-
-                    mContext.startActivity(intent);
-*/
                     return true;
                 case R.id.details:
                         Intent intent = new Intent(mContext,FixtureMatchDetails.class);

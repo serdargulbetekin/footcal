@@ -23,7 +23,7 @@ public class Referee implements Serializable {
     private String Referee_Cockade;
     @SerializedName("Country_Id")
     @Expose
-    private Country Country;
+    private com.sgfootcal.android.footcal.pojomodel.Country Country;
 
     public String getReferee_Id() {
         return Referee_Id;

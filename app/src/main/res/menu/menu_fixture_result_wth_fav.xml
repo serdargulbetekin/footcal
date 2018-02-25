@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/firstteam"
+        android:icon="@mipmap/a1"
+        android:title="Ev Sahibi Takım" />
+    <item
+        android:id="@+id/secondteam"
+        android:icon="@mipmap/a2"
+        android:title="Misafir Takım"/>
+    <item
+        android:id="@+id/fav"
+        android:icon="@drawable/hearth"
+        android:title="Favroilerime Ekle"/>
+
+</menu>

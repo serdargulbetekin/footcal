@@ -25,7 +25,6 @@ import com.sgfootcal.android.footcal.Fragments.AssistFragment;
 import com.sgfootcal.android.footcal.Fragments.PointTableFragments;
 import com.sgfootcal.android.footcal.Fragments.RedYellowCardFragment;
 import com.sgfootcal.android.footcal.Fragments.ResultsFragment;
-import com.sgfootcal.android.footcal.Fragments.TeamsFixture;
 import com.sgfootcal.android.footcal.Fragments.TeamsFragment;
 import com.sgfootcal.android.footcal.Fragments.TopScorerFragment;
 import com.sgfootcal.android.footcal.Internet.ApiUtils;
@@ -99,7 +98,7 @@ public class LeaguesDetailsActivity extends AppCompatActivity {
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(new TeamsFragment(), "Takımlar");
-        viewPagerAdapter.addFragment(new TeamsFixture(), "Fikstür");
+      //  viewPagerAdapter.addFragment(new TeamsFixture(), "Fikstür");
         viewPagerAdapter.addFragment(new TopScorerFragment(), "Gol Krallığı");
         viewPagerAdapter.addFragment(new AssistFragment(), "Asist Krallığı");
         viewPagerAdapter.addFragment(new ResultsFragment(), "Sonuçlar");

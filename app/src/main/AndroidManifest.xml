@@ -38,12 +38,10 @@
             />
         <activity android:name="com.sgfootcal.android.footcal.Activities.LeaguesDetailsActivity"
            />
-        <activity android:name="com.sgfootcal.android.footcal.Activities.Favorites"
-            android:screenOrientation="portrait"/>
+        <activity android:name="com.sgfootcal.android.footcal.Activities.Favorites" />
         <activity android:name="com.sgfootcal.android.footcal.Activities.FixtureMatchDetails"
             android:screenOrientation="portrait"/>
-        <activity android:name="com.sgfootcal.android.footcal.Activities.TeamsDetailsActivity"
-            android:screenOrientation="portrait"/>
+        <activity android:name="com.sgfootcal.android.footcal.Activities.TeamsDetailsActivity" />
 
         <service
             android:name="com.sgfootcal.android.footcal.MyFirebaseMessagingService">

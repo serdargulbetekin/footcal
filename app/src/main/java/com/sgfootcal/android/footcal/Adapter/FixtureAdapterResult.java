@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.sgfjcrmpr.android.foot_cal.R;
 import com.sgfootcal.android.footcal.Activities.TeamsDetailsActivity;
+import com.sgfootcal.android.footcal.Internet.ApiUtils;
 import com.sgfootcal.android.footcal.Internet.FixtureDaoInterface;
 import com.sgfootcal.android.footcal.pojomodel.Fixture;
 import com.sgfootcal.android.footcal.pojomodel.FixtureSample;
@@ -110,7 +111,14 @@ public class FixtureAdapterResult extends RecyclerView.Adapter<FixtureAdapterRes
         holder.cardViewTeams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showPopupWindow(holder.cardViewTeams, position);
+
+                if (!fixture.getFixtureResult().getFirstTeam_Goal().equals("-")){
+                    showPopupWindow(holder.cardViewTeams, position);
+                }
+                else if (fixture.getFixtureResult().getFirstTeam_Goal().equals("-")){
+                    showPopupWindowWithFav(holder.cardViewTeams, position);
+                }
+
 /*
                 View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_fixture_results_details, null); // no parent
 
@@ -214,6 +222,8 @@ public class FixtureAdapterResult extends RecyclerView.Adapter<FixtureAdapterRes
 
     }
 
+
+
     @Override
     public int getItemCount() {
         return fixtureList.size();
@@ -242,7 +252,34 @@ public class FixtureAdapterResult extends RecyclerView.Adapter<FixtureAdapterRes
         popup.getMenu().getItem(1).setTitle(fixtureList.get(position).getTeams2().getTeams_Name());
 
         popup.show();
+        fixtureDaoInterface= ApiUtils.getFixtureDaoInterface();
+        getAllFavSounds();
+    }
+    private void showPopupWindowWithFav(View view,int position) {
+        PopupMenu popup = new PopupMenu(mContext, view);
+        try {
+            Field[] fields = popup.getClass().getDeclaredFields();
+            for (Field field : fields) {
+                if ("mPopup".equals(field.getName())) {
+                    field.setAccessible(true);
+                    Object menuPopupHelper = field.get(popup);
+                    Class<?> classPopupHelper = Class.forName(menuPopupHelper.getClass().getName());
+                    Method setForceIcons = classPopupHelper.getMethod("setForceShowIcon", boolean.class);
+                    setForceIcons.invoke(menuPopupHelper, true);
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        popup.getMenuInflater().inflate(R.menu.menu_fixture_result_wth_fav, popup.getMenu());
+        popup.setOnMenuItemClickListener(new MyMenuItemClickListener(position));
+        popup.getMenu().getItem(0).setTitle(fixtureList.get(position).getTeams().getTeams_Name());
+        popup.getMenu().getItem(1).setTitle(fixtureList.get(position).getTeams2().getTeams_Name());
 
+        popup.show();
+        fixtureDaoInterface= ApiUtils.getFixtureDaoInterface();
+        getAllFavSounds();
     }
 
     class MyMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
@@ -297,9 +334,42 @@ public class FixtureAdapterResult extends RecyclerView.Adapter<FixtureAdapterRes
                         mContext.startActivity(intent4);
                         return true;
                     }
-                default:
+                case  R.id.fav:
+                    if (isOnlineForAddingToFavs()){
+
+                        int favSoundsListOptimization = fixtureListFav.size();
+
+                        for (int i = 0; i < favSoundsListOptimization; i++) {
+
+
+                            if (fixtureListFav.get(i).getTeams().getTeams_Name().equals(fixture.getTeams().getTeams_Name())) {
+                                countExistenceControl++;
+
+                            }
+                        }
+                        if (countExistenceControl != 0) {
+                            Toast.makeText(mContext, fixture.getTeams().getTeams_Name() + "-" +fixture.getTeams2().getTeams_Name() + " zaten Favorilerimde mevcut.", Toast.LENGTH_SHORT).show();
+
+                            countExistenceControl = 0;
+                        }
+
+                        else {
+
+                            Toast.makeText(mContext, fixture.getTeams().getTeams_Name() + "-" +fixture.getTeams2().getTeams_Name() + " Favorilerime eklendi!", Toast.LENGTH_SHORT).show();
+
+                            addToFavFixture(fixture.getFixture_Date(), fixture.getFixture_Day(), fixture.getFixture_Hour(),
+                                    Integer.parseInt(fixture.getTeams().getTeam_Id()), Integer.parseInt(fixture.getTeams2().getTeam_Id()),
+                                    Integer.parseInt(fixture.getLeagues().getLeagues_Id()),Integer.parseInt(fixture.getReferee().getReferee_Id()));
+                            countExistenceControl = 0;
+                        }
+
+
+                    }
+
             }
-            return false;
+
+                    return true;
+            
         }
 
     }

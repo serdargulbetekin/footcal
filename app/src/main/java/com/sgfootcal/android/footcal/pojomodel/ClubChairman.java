@@ -20,10 +20,10 @@ public class ClubChairman implements Serializable {
     private String ClubChairman_Name;
     @SerializedName("Team_Id")
     @Expose
-    private Teams Teams;
+    private com.sgfootcal.android.footcal.pojomodel.Teams Teams;
     @SerializedName("Country_Id")
     @Expose
-    private Country Country;
+    private com.sgfootcal.android.footcal.pojomodel.Country Country;
 
     public String getClubChairman_Id() {
         return ClubChairman_Id;

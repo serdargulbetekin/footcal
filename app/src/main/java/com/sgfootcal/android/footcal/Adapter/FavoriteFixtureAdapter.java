@@ -136,7 +136,13 @@ public class FavoriteFixtureAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
             vh.textViewTeamsName.setText(String.valueOf(fixture.getTeams().getTeams_Name()));
             vh.textViewTeamsName2.setText(String.valueOf(fixture.getTeams2().getTeams_Name()));
+/*
 
+              if(!fixture.getFixtureResult().getFirstTeam_Goal().equals("-")){
+              Toast.makeText(mContext,"asdasdasdasda",Toast.LENGTH_SHORT).show();
+                 // removeFavFixture(Integer.parseInt(fixture.getFixture_Id()));
+            }
+*/
             Picasso.with(mContext)
                     .load(url)
                     .into(vh.imageViewTeams);
@@ -169,10 +175,10 @@ public class FavoriteFixtureAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
 
-    public void removeFavFixture(int favSounds_Id){
+    public void removeFavFixture(int fixture_Id){
 
 
-        fixtureDaoInterface.deleteFromFavFixture(favSounds_Id).enqueue(new Callback<FixtureSample>() {
+        fixtureDaoInterface.deleteFromFavFixture(fixture_Id).enqueue(new Callback<FixtureSample>() {
             @Override
             public void onResponse(Call<FixtureSample> call, Response<FixtureSample> response) {
                 if (response.isSuccessful()){

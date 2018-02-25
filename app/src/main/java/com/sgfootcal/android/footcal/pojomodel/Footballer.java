@@ -26,11 +26,11 @@ public class Footballer implements Serializable{
 
     @SerializedName("Team_Id")
     @Expose
-    private Teams Teams;
+    private com.sgfootcal.android.footcal.pojomodel.Teams Teams;
 
     @SerializedName("Country_Id")
     @Expose
-    private Country Country;
+    private com.sgfootcal.android.footcal.pojomodel.Country Country;
 
     @SerializedName("GoalScore_Id")
     @Expose
