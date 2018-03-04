@@ -35,6 +35,9 @@ public class Fixture implements Serializable{
     @SerializedName("Result")
     @Expose
     private com.sgfootcal.android.footcal.pojomodel.FixtureResult FixtureResult;
+    @SerializedName("Goals")
+    @Expose
+    private Goals goals;
 
     public String getFixture_Id() {
         return Fixture_Id;
@@ -106,5 +109,13 @@ public class Fixture implements Serializable{
 
     public void setFixtureResult(com.sgfootcal.android.footcal.pojomodel.FixtureResult fixtureResult) {
         FixtureResult = fixtureResult;
+    }
+
+    public Goals getGoals() {
+        return goals;
+    }
+
+    public void setGoals(Goals goals) {
+        this.goals = goals;
     }
 }

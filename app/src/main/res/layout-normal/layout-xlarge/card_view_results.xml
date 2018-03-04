@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/White">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewFixture"
+        android:layout_width="fill_parent"
+        android:layout_height="170dp"
+        android:backgroundTint="#FFFFFF"
+        android:layout_gravity="fill_horizontal"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardMaxElevation="15dp"
+        card_view:cardElevation="10dp"
+        card_view:contentPadding="5dp"
+        android:padding="1dp"
+        android:layout_margin="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/firstTeamR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="103dp"
+                android:layout_marginStart="103dp"
+                android:textStyle="bold"
+                android:text="FTR"
+                android:textSize="25dp"
+                android:layout_alignBottom="@+id/imageViewTeams"
+                android:layout_toRightOf="@+id/imageViewTeams"
+                android:layout_toEndOf="@+id/imageViewTeams" />
+
+            <TextView
+                android:id="@+id/secondTeamR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="90dp"
+                android:layout_marginRight="90dp"
+                android:textStyle="bold"
+                android:text="STR"
+                android:textSize="25dp"
+                android:layout_above="@+id/textViewTeamsName2"
+                android:layout_toLeftOf="@+id/textViewTeamsName2"
+                android:layout_toStartOf="@+id/textViewTeamsName2" />
+            <TextView
+                android:id="@+id/textViewTeamsName"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_below="@id/imageViewTeams"
+                android:gravity="center"
+                android:text="Friends"
+                android:textAlignment="gravity"
+                android:textColor="@color/Black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/textViewTeamsName2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/imageViewTeams2"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:gravity="start|center"
+                android:layout_alignStart="@+id/imageViewTeams2"
+                android:layout_alignTop="@+id/textViewTeamsName"
+                android:text="Friends"
+                android:textAlignment="gravity"
+                android:textColor="@color/Black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:id="@+id/imageViewTeams"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                card_view:srcCompat="@drawable/myprofile"
+                android:layout_alignParentTop="true"
+                android:layout_alignLeft="@+id/textViewTeamsName"
+                android:layout_alignStart="@+id/textViewTeamsName"
+                android:layout_marginTop="27dp" />
+
+            <ImageView
+                android:id="@+id/imageViewTeams2"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="23dp"
+                android:layout_marginRight="23dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                card_view:srcCompat="@drawable/myprofile"
+                android:layout_above="@+id/textViewTeamsName2"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+</RelativeLayout>
