@@ -45,7 +45,7 @@ public class FixtureMatchDetails extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.White));
         setSupportActionBar(toolbar);
 
-        titleLeague= (TextView) toolbar.findViewById(R.id.titledetails);
+      //  titleLeague= (TextView) toolbar.findViewById(R.id.titledetails);
 
 
         textViewLeague=(TextView) findViewById(R.id.textViewLeague);

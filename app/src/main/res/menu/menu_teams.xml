@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/right"
+        android:id="@+id/gototeam"
+        
+        android:title="Takıma Git"/>
+
+    <item
+        android:id="@+id/goals"
+        android:icon="@drawable/goalassist"
+        android:title="Gol Krallığı"
+        />
+    <item
+        android:id="@+id/assist"
+        android:icon="@drawable/goalassist"
+        android:title="Asist Krallığı"
+        />
+    <item
+        android:id="@+id/matchofweek"
+        android:icon="@drawable/calendar"
+        android:title="Bu haftaki maçı gör" />
+    <item
+        android:id="@+id/yellowredcard"
+        android:icon="@drawable/card"
+        android:title="Sarı ve Kırmızı Kartlar" />
+    <item
+        android:id="@+id/point"
+        android:icon="@drawable/details"
+        android:title="Puan Durumu"/>
+    <item
+        android:id="@+id/chairmancoach"
+        android:icon="@drawable/person"
+        android:title="Başkan ve Koç"/>
+</menu>
