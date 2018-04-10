@@ -118,6 +118,8 @@ public class LeaguesDetailsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+
+
         startActivity(new Intent(LeaguesDetailsActivity.this,MainActivity.class));
     }
 

@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewGoalOrAssist"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="fill_horizontal"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardMaxElevation="15dp"
+        card_view:cardElevation="10dp"
+        card_view:contentPadding="5dp"
+        android:padding="1dp"
+
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textViewFootballerName"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_alignBaseline="@+id/textViewGoalOrAssist"
+                android:layout_alignBottom="@+id/textViewGoalOrAssist"
+                android:layout_toEndOf="@+id/imageViewTeams"
+                android:layout_toRightOf="@+id/imageViewTeams"
+                android:layout_toLeftOf="@id/textViewGoalOrAssist"
+                android:layout_toStartOf="@id/textViewGoalOrAssist"
+                android:background="@color/White"
+                android:gravity="start"
+                android:text="Friends"
+                android:textAlignment="gravity"
+                android:textColor="@color/Black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textViewTeamName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Takım"
+                android:textSize="14dp"
+                android:layout_below="@+id/textViewFootballerName"
+                android:layout_toRightOf="@+id/imageViewTeams"
+                android:layout_toEndOf="@+id/imageViewTeams"
+                />
+
+            <TextView
+                android:id="@+id/textViewGoalOrAssist"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@color/White"
+                android:gravity="center"
+                android:text="Number"
+                android:textAlignment="gravity"
+                android:textColor="@color/Black"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+
+
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                card_view:srcCompat="@drawable/myprofile"
+                android:scaleType="fitXY"
+                android:adjustViewBounds = "true"
+                android:id="@+id/imageViewTeams"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/textViewNumber"
+                android:layout_toEndOf="@+id/textViewNumber" />
+
+            <TextView
+                android:id="@+id/textViewNumber"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:text="TextView"
+                android:textSize="20dp"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold"
+                android:layout_alignBaseline="@+id/textViewGoalOrAssist"
+                android:layout_alignBottom="@+id/textViewGoalOrAssist"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+</RelativeLayout>

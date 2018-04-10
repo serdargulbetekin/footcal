@@ -11,4 +11,10 @@
         android:id="@+id/secondteam"
         android:icon="@mipmap/a2"
         android:title="Misafir Takım"/>
+
+    <item
+        android:id="@+id/details"
+        android:icon="@drawable/details"
+        android:title="Maç Detayı"
+        />
 </menu>

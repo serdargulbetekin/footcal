@@ -27,5 +27,8 @@ public class ApiUtils {
     public static ClubChairmanDaoInterface getClubChairManDaoInterface() {
         return RetrofitClient.getClient(BASE_URL).create(ClubChairmanDaoInterface.class);
     }
+    public static GoalsDaoInterface getGoalsDaoInterface() {
+        return RetrofitClient.getClient(BASE_URL).create(GoalsDaoInterface.class);
+    }
 
 }

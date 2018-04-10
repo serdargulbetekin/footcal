@@ -9,7 +9,6 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 
-
 public interface FootballerDaoInterface {
 
     @POST("allFootballerByLeagueIdTopScorer.php")
@@ -61,7 +60,7 @@ public interface FootballerDaoInterface {
     @POST("allFootballerSearchByTeamIdTopScorers.php")
     @FormUrlEncoded
     Call<FootballerSample> allFootballerSearchByTeamIdTopScorers(@Field("Footballer_Name") String Footballer_Name,
-                                                       @Field("Team_Id") int Team_Id);
+                                                                 @Field("Team_Id") int Team_Id);
 
     @POST("allFootballerSearchByTeamIdTopAssisters.php")
     @FormUrlEncoded
@@ -74,11 +73,11 @@ public interface FootballerDaoInterface {
     @POST("allFootballerSearchByTeamIdYellowRedCard.php")
     @FormUrlEncoded
     Call<FootballerSample> allFootballerSearchByTeamIdYellowRedCard(@Field("Footballer_Name") String Footballer_Name,
-                                                                   @Field("Team_Id") int Team_Id);
+                                                                    @Field("Team_Id") int Team_Id);
     @POST("allFootballerByTeamIdYellowRedCard.php")
     @FormUrlEncoded
     Call<FootballerSample> allFootballerByTeamIdYellowRedCard(
-                                                                   @Field("Team_Id") int Team_Id);
+            @Field("Team_Id") int Team_Id);
 
 
 

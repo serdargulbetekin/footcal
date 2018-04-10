@@ -15,7 +15,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -28,6 +31,7 @@ import com.sgfootcal.android.footcal.pojomodel.Fixture;
 import com.sgfootcal.android.footcal.pojomodel.FixtureSample;
 import com.sgfootcal.android.footcal.pojomodel.Leagues;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -46,10 +50,19 @@ public class ResultsFragment extends Fragment implements SearchView.OnQueryTextL
     private Leagues leagues;
     private AdView mAdView;
 
+
+    private ArrayList<String> weeks = new ArrayList<>();
+    private ArrayAdapter<String> veriAdaptoru;
+    private Spinner spinnerweeks;
+
+
+
+
+
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        View view =inflater.inflate(R.layout.teams_fixture,container,false);
+        View view =inflater.inflate(R.layout.result_fixture,container,false);
 
         if (isOnline()) {
 
@@ -58,11 +71,13 @@ public class ResultsFragment extends Fragment implements SearchView.OnQueryTextL
             fixtureDaoInterface = ApiUtils.getFixtureDaoInterface();
 
             recyclerView = (RecyclerView) view.findViewById(R.id.TeamsFixtureRV);
+            spinnerweeks = (Spinner) view.findViewById(R.id.spinner_weeks);
+
             recyclerView.setHasFixedSize(true);
 
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-            getAllTeamsFixtureByLeaguesId(1);
+            weeks();
 
             mAdView = (AdView) view.findViewById(R.id.adView);
             AdRequest adRequest = new AdRequest.Builder().build();
@@ -99,9 +114,9 @@ public class ResultsFragment extends Fragment implements SearchView.OnQueryTextL
     }
 
 
-    public void getAllTeamsFixtureByLeaguesId(int league_Id){
+    public void getAllTeamsFixtureByLeaguesId(int Week){
 
-        fixtureDaoInterface.allFixturesByLeagueId(league_Id).enqueue(new Callback<FixtureSample>() {
+        fixtureDaoInterface.allFixtureByWeekId(Week).enqueue(new Callback<FixtureSample>() {
             @Override
             public void onResponse(Call<FixtureSample> call, Response<FixtureSample> response) {
                 if (response.isSuccessful()){
@@ -124,6 +139,37 @@ public class ResultsFragment extends Fragment implements SearchView.OnQueryTextL
     }
 
 
+    public void weeks(){
+        weeks.add("28");
+        weeks.add("29");
+        weeks.add("30");
+        weeks.add("31");
+        weeks.add("32");
+        weeks.add("33");
+        weeks.add("34");
+
+        veriAdaptoru=new ArrayAdapter<String>
+                (getContext(), android.R.layout.simple_list_item_1, android.R.id.text1, weeks);
+
+
+        spinnerweeks.setAdapter(veriAdaptoru);
+
+
+
+        spinnerweeks.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //allFixtureByWeekId(Integer.parseInt(weeks.get(spinnerweeks.getSelectedItemPosition())));
+                getAllTeamsFixtureByLeaguesId(Integer.parseInt(weeks.get(spinnerweeks.getSelectedItemPosition())));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
 
     public void allFixtureResultSearchByLeagueId(final String searchKey,int League_Id){
 

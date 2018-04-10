@@ -9,14 +9,13 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 
-
 public interface FixtureDaoInterface {
 
 
     @POST("allFixtureResultSearchByLeagueId.php")
     @FormUrlEncoded
     Call<FixtureSample> allFixtureResultSearchByLeagueId(@Field("Team_Name") String Team_Name,
-                                                   @Field("League_Id") int League_Id);
+                                                         @Field("League_Id") int League_Id);
 
     //Hem veri gönder hem veri çek
     //Field sadece encoded ile kullanılır!!!!
@@ -26,6 +25,10 @@ public interface FixtureDaoInterface {
     @POST("allFixtureByLeaguesId.php")
     @FormUrlEncoded
     Call<FixtureSample> allFixturesByLeagueId(@Field("League_Id") int League_Id);
+
+    @POST("allFixtureByWeekId.php")
+    @FormUrlEncoded
+    Call<FixtureSample> allFixtureByWeekId(@Field("Fixture_Week") int Fixture_Week);
     //Hem veri gönder hem veri çek
     //Field sadece encoded ile kullanılır!!!!
 
@@ -67,7 +70,8 @@ public interface FixtureDaoInterface {
                                            @Field("FirstTeam_Id") int FirstTeam_Id,
                                            @Field("SecondTeam_Id") int SecondTeam_Id,
                                            @Field("League_Id") int League_Id,
-                                           @Field("Referee_Id") int Referee_Id);
+                                           @Field("Referee_Id") int Referee_Id,
+                                           @Field("Fixture_Week") int Fixture_Week);
 
     //hem veri gönder ve kayıt başarılı mesajı al
 

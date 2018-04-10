@@ -3,26 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+    <item
+        android:id="@+id/favNav"
+        android:checked="true"
+        android:icon="@drawable/hearth"
+        android:title="Favorilerim" >
+    </item>
 
-        <menu>
-            <item
-                android:id="@+id/favroitesnavigation"
-                android:checked="true"
-                android:title="Favorilerim" >
-            </item>
+    <item
+        android:id="@+id/leagueNav"
+        android:checked="true"
+        android:icon="@drawable/stadium"
+        android:title="Süper Lig" >
+    </item>
+    <item
+        android:id="@+id/logoutNav"
+        android:checked="true"
+        android:icon="@drawable/left"
+        android:title="Çıkış Yap" >
+    </item>
 
-        </menu>
 
-
-
-        <menu>
-            <item
-                android:id="@+id/leaguesnavigationdrawer"
-                android:checked="true"
-                android:title="Süper Lig" >
-            </item>
-
-        </menu>
 
 
 

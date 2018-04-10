@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+android:background="@color/White"
+    android:layout_height="wrap_content">
+
+    <ImageButton
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/close"
+        android:background="#FFFFFF"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/White">
+
+
+
+
+            <TextView
+                android:id="@+id/firstTeamName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:layout_below="@+id/firstTeamImage"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:id="@+id/secondTeamName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:gravity="center"
+                android:layout_below="@+id/secondTeamImage"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignLeft="@+id/secondTeamImage"
+                android:layout_alignStart="@+id/secondTeamImage" />
+
+            <TextView
+                android:id="@+id/firstTeamRR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FTR"
+                android:layout_alignBaseline="@+id/secondTeamRR"
+                android:layout_alignBottom="@+id/secondTeamRR"
+                android:layout_toRightOf="@+id/firstTeamImage"
+                android:layout_toEndOf="@+id/firstTeamImage"
+                android:layout_marginLeft="29dp"
+                android:layout_marginStart="29dp" />
+            <TextView
+                android:id="@+id/secondTeamRR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STR"
+                android:layout_above="@+id/secondTeamName"
+                android:layout_toLeftOf="@+id/secondTeamImage"
+                android:layout_toStartOf="@+id/secondTeamImage"
+                android:layout_marginRight="25dp"
+                android:layout_marginEnd="25dp" />
+            <ImageView
+                android:id="@+id/firstTeamImage"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/firstTeamName"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/firstTeamName"
+                app:srcCompat="@mipmap/ic_launcher" />
+
+            <ImageView
+                android:id="@+id/secondTeamImage"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+
+
+
+        </RelativeLayout>
+
+
+</RelativeLayout>

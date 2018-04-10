@@ -90,7 +90,7 @@ public class FootballerFragment extends Fragment implements SearchView.OnQueryTe
 
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-                allFootballer(Integer.parseInt(teams.getTeam_Id()));
+            allFootballer(Integer.parseInt(teams.getTeam_Id()));
             mAdView = (AdView) view.findViewById(R.id.adView);
             AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);

@@ -17,11 +17,13 @@ public class Goals implements Serializable {
     private String Fixture_Id;
     @SerializedName("Footballer_Id")
     @Expose
-    private String Footballer_Id;
+    private Footballer footballer;
     @SerializedName("isOwnGoal")
     @Expose
-    private Teams isOwnGoal;
-
+    private String isOwnGoal;
+    @SerializedName("minute")
+    @Expose
+    private String minute;
 
     public String getFixture_Id() {
         return Fixture_Id;
@@ -31,19 +33,27 @@ public class Goals implements Serializable {
         Fixture_Id = fixture_Id;
     }
 
-    public String getFootballer_Id() {
-        return Footballer_Id;
+    public Footballer getFootballer() {
+        return footballer;
     }
 
-    public void setFootballer_Id(String footballer_Id) {
-        Footballer_Id = footballer_Id;
+    public void setFootballer(Footballer footballer) {
+        this.footballer = footballer;
     }
 
-    public Teams getIsOwnGoal() {
+    public String getIsOwnGoal() {
         return isOwnGoal;
     }
 
-    public void setIsOwnGoal(Teams isOwnGoal) {
+    public void setIsOwnGoal(String isOwnGoal) {
         this.isOwnGoal = isOwnGoal;
+    }
+
+    public String getMinute() {
+        return minute;
+    }
+
+    public void setMinute(String minute) {
+        this.minute = minute;
     }
 }

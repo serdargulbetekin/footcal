@@ -1,0 +1,137 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewFixture"
+        android:layout_width="fill_parent"
+        android:layout_height="170dp"
+        android:backgroundTint="#FFFFFF"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textViewDate"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_toEndOf="@+id/imageViewTeams"
+                android:layout_toLeftOf="@+id/imageViewTeams2"
+                android:layout_toRightOf="@+id/imageViewTeams"
+                android:layout_toStartOf="@id/imageViewTeams2"
+                android:gravity="center"
+                android:text="Friends"
+                android:textAlignment="gravity"
+                android:textColor="@color/Black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewDay"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:layout_toEndOf="@+id/imageViewTeams"
+                android:layout_toLeftOf="@+id/imageViewTeams2"
+                android:layout_toRightOf="@+id/imageViewTeams"
+                android:layout_toStartOf="@id/imageViewTeams2"
+                android:text="Friends"
+                android:textAlignment="gravity"
+                android:textColor="@color/Black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_below="@+id/textViewDate"
+                android:layout_above="@id/textViewHour"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/textViewHour"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="Friends"
+                android:textAlignment="gravity"
+                android:textColor="@color/Black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@+id/imageViewTeams"
+                android:layout_toRightOf="@+id/imageViewTeams"
+                android:layout_alignBottom="@+id/textViewTeamsName2"
+                android:layout_toLeftOf="@+id/textViewTeamsName2"
+                android:layout_toStartOf="@+id/textViewTeamsName2" />
+
+            <TextView
+                android:id="@+id/textViewTeamsName"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_below="@id/imageViewTeams"
+                android:gravity="center"
+                android:text="Friends"
+                android:textAlignment="gravity"
+                android:textColor="@color/Black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/textViewTeamsName2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/imageViewTeams2"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+
+                android:layout_alignStart="@+id/imageViewTeams2"
+                android:layout_alignTop="@+id/textViewTeamsName"
+                android:text="Friends"
+                android:textAlignment="gravity"
+                android:textColor="@color/Black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:id="@+id/imageViewTeams"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                card_view:srcCompat="@drawable/myprofile"
+                android:layout_below="@+id/textViewDate"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="35dp"
+                android:layout_marginStart="35dp" />
+
+            <ImageView
+                android:id="@+id/imageViewTeams2"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginRight="33dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                card_view:srcCompat="@drawable/myprofile"
+                android:layout_below="@+id/textViewDate"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+</RelativeLayout>

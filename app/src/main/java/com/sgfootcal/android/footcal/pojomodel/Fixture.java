@@ -11,6 +11,9 @@ public class Fixture implements Serializable{
     @SerializedName("Fixture_Id")
     @Expose
     private String Fixture_Id;
+    @SerializedName("Fixture_Week")
+    @Expose
+    private String Fixture_Week;
     @SerializedName("Fixture_Date")
     @Expose
     private String Fixture_Date;
@@ -45,6 +48,14 @@ public class Fixture implements Serializable{
 
     public void setFixture_Id(String fixture_Id) {
         Fixture_Id = fixture_Id;
+    }
+
+    public String getFixture_Week() {
+        return Fixture_Week;
+    }
+
+    public void setFixture_Week(String fixture_Week) {
+        Fixture_Week = fixture_Week;
     }
 
     public String getFixture_Date() {

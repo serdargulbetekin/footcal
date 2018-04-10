@@ -87,34 +87,10 @@ TextView textView =(TextView)  toolbar.findViewById(R.id.title);
             rv.setLayoutManager(new LinearLayoutManager(this));
             rv.setItemAnimator(new DefaultItemAnimator());
             fixtureDaoInterface = ApiUtils.getFixtureDaoInterface();
-            getAllFavSounds();
+            getAllFavFixture();
         }
     }
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_leagues_search, menu);
 
-        final MenuItem item = menu.findItem(R.id.action_search_seasons);
-        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
-        searchView.setOnQueryTextListener(this);
-        searchView.setQueryHint("Favori Maçlarımı Ara");
-
-
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        if (isOnline()) {
-            searchAllFavFixtures(newText);
-        }
-        return false;
-    }*/
     public boolean isOnline() {
         ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
@@ -133,7 +109,7 @@ TextView textView =(TextView)  toolbar.findViewById(R.id.title);
     }
 
 
-    public void getAllFavSounds(){
+    public void getAllFavFixture(){
 
         fixtureDaoInterface.getAllFavFixture().enqueue(new Callback<FixtureSample>() {
             @Override

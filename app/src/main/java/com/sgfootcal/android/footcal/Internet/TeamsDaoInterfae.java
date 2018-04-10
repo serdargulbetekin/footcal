@@ -10,13 +10,9 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 
-
 public interface TeamsDaoInterfae {
 
-
-
     @GET("allTeams.php")
-
     Call<TeamsSample> allTeams();
     //Sadece veri çekilecek ise GET metodu kullanılır.
 

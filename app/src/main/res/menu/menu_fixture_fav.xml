@@ -4,29 +4,25 @@
 
     <item
         android:id="@+id/fav"
-        android:icon="@mipmap/a1"
+        android:icon="@drawable/hearth"
         android:title="Favorilerimden Çıkar"/>
 
     <item
-        android:id="@+id/calendar"
-        android:icon="@mipmap/a2"
-        android:title="Takvime Ekle"
-        />
-    <item
         android:id="@+id/details"
-        android:icon="@mipmap/a3"
-        android:title="Maç Detayı"
-        />
+        android:icon="@drawable/details"
+        android:title="Maç Detayı"/>
+
+
     <item
         android:id="@+id/leagues"
-        android:icon="@mipmap/a4"
+        android:icon="@mipmap/a1"
         android:title="Lige Git" />
     <item
         android:id="@+id/firstteam"
-        android:icon="@mipmap/a5"
+        android:icon="@mipmap/a2"
         android:title="Ev Sahibi Takım" />
     <item
         android:id="@+id/secondteam"
-        android:icon="@mipmap/a6"
+        android:icon="@mipmap/a3"
         android:title="Misafir Takım"/>
 </menu>

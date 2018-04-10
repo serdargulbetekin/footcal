@@ -23,7 +23,7 @@ public class SplashPage extends AppCompatActivity {
                 try{
                     // soundPlayer(getApplicationContext(),R.raw.howyoudoin);
                     sleep(2000);
-                    Intent intent = new Intent(SplashPage.this,MainActivity.class);
+                    Intent intent = new Intent(SplashPage.this,LoginScreen.class);
                     startActivity(intent);
                     finish();
 
@@ -38,16 +38,5 @@ public class SplashPage extends AppCompatActivity {
         time.start();
 
     }
-
-/*
-
-    public static void soundPlayer(Context ctx, int raw_id){
-        player = MediaPlayer.create(ctx, raw_id);
-             player.setLooping(false); // Set looping
-                 player.setVolume(400, 400);
-                    player.start();
-    }
-*/
-
 
 }

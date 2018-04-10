@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/White"
+    android:layout_height="wrap_content">
+
+    <ImageButton
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/close"
+        android:background="#FFFFFF"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+
+        android:layout_marginTop="20dp"
+        android:background="@color/White">
+
+
+        <TextView
+            android:id="@+id/firstTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignBottom="@+id/firstTeamImage"
+            android:layout_toEndOf="@+id/firstTeamImage"
+            android:layout_toRightOf="@+id/firstTeamImage"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/secondTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/twtitlega"
+            android:layout_toEndOf="@+id/secondTeamImage"
+            android:layout_toRightOf="@+id/secondTeamImage"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/firstTeamR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/firstTeamName"
+            android:layout_alignBottom="@+id/firstTeamName"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="FTR" />
+
+        <TextView
+            android:id="@+id/secondteamR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/secondTeamName"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="STR" />
+
+        <ImageView
+            android:id="@+id/firstTeamImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/secondTeamImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/firstTeamName"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/detailsdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/twtitlega"
+            android:drawableLeft="@drawable/calendar"
+            android:text="Tarih"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/detailshour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/detailsdate"
+            android:drawableLeft="@drawable/hour"
+            android:textColor="@color/black"
+            android:text="Saat"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/detailsstadium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/detailshour"
+            android:drawableLeft="@drawable/stadium"
+            android:textColor="@color/black"
+            android:text="Stadyum"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/detailscity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/detailsstadium"
+            android:drawableLeft="@drawable/flag"
+            android:textColor="@color/black"
+            android:text="Şehir/Ülke"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/detailsreferee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/detailscity"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/referee"
+            android:text="Hakem"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/twtitlega"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/secondTeamImage"
+            android:backgroundTint="@color/Gray"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:text="~Maç Bilgileri~"
+            android:textColor="@color/red"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/detailsleague"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/detailsreferee"
+            android:drawableLeft="@drawable/notifyicon"
+            android:text="Lig"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

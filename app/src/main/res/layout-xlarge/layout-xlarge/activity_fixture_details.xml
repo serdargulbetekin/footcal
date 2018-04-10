@@ -1,0 +1,337 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/CoordinatorLayoutFixtureDetails">
+
+
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBarFixtureDetails"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/White"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/Base.Widget.AppCompat.PopupMenu.Overflow">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/titleMatchDetails"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_centerVertical="true"
+
+                android:fontFamily="cursive"
+                android:gravity="center"
+                android:text="Maç Detayları"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="40dp"
+                android:textStyle="italic|bold" />
+
+            <ImageView
+                android:id="@+id/imageViewDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/details" />
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="190dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+
+            <TextView
+                android:id="@+id/textViewLeague"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_below="@+id/appBar"
+                android:layout_toEndOf="@+id/circleImageLeague"
+
+                android:layout_toRightOf="@+id/circleImageLeague"
+                android:background="@color/black"
+                android:gravity="start|center"
+                android:text="TextView"
+                android:textColor="@color/White"
+                android:textSize="24dp" />
+
+            <ImageView
+                android:id="@+id/circleImageLeague"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/league" />
+
+            <TextView
+                android:id="@+id/textViewStadium"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/circleImageLeague"
+                android:layout_toEndOf="@+id/circleImageLeague"
+                android:layout_toRightOf="@+id/circleImageLeague"
+                android:background="@color/black"
+                android:gravity="start|center"
+                android:text="TextView"
+                android:textColor="@color/White"
+                android:textSize="24dp" />
+
+            <ImageView
+                android:id="@+id/circleImageStadium"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_below="@+id/circleImageLeague"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/textViewCity"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textViewStadium"
+                android:layout_toEndOf="@+id/circleImageCity"
+                android:layout_toRightOf="@+id/circleImageCity"
+                android:background="@color/black"
+                android:gravity="start|center"
+                android:text="TextView"
+                android:textColor="@color/White"
+                android:textSize="24dp" />
+
+            <ImageView
+                android:id="@+id/circleImageCity"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/circleImageStadium"
+                android:src="@mipmap/city" />
+
+            <TextView
+                android:id="@+id/textViewCountry"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/circleImageCity"
+                android:layout_toEndOf="@+id/circleImageCity"
+                android:layout_toRightOf="@+id/circleImageCity"
+                android:background="@color/black"
+                android:gravity="start|center"
+                android:text="TextView"
+                android:textColor="@color/White"
+                android:textSize="24dp" />
+
+            <ImageView
+                android:id="@+id/circleImageCountry"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/circleImageCity"
+                android:src="@mipmap/flag" />
+
+
+            <TextView
+                android:id="@+id/textViewDate"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_below="@+id/circleImageCountry"
+                android:layout_toEndOf="@+id/circleImageCountry"
+                android:layout_toRightOf="@+id/circleImageCountry"
+                android:background="@color/black"
+                android:gravity="start|center"
+                android:text="TextView"
+                android:textColor="@color/White"
+                android:textSize="24dp" />
+
+            <ImageView
+                android:id="@+id/circleImageDate"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/circleImageCountry"
+                android:src="@mipmap/date" />
+
+
+            <TextView
+                android:id="@+id/textViewDay"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="@color/black"
+
+                android:gravity="start|center"
+                android:text="TextView"
+                android:textColor="@color/White"
+                android:textSize="24dp"
+                android:layout_alignTop="@+id/circleImageDay"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_toRightOf="@+id/circleImageDay"
+                android:layout_toEndOf="@+id/circleImageDay" />
+
+            <ImageView
+                android:id="@+id/circleImageDay"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/date"
+                android:layout_below="@+id/textViewDate"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+
+            <TextView
+                android:id="@+id/textViewHour"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="@color/black"
+                android:gravity="start|center"
+                android:text="TextView"
+                android:textColor="@color/White"
+                android:textSize="24dp"
+                android:layout_below="@+id/textViewDay"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_toRightOf="@+id/circleImageDay"
+                android:layout_toEndOf="@+id/circleImageDay" />
+
+            <ImageView
+                android:id="@+id/circleImageHour"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentLeft="true"
+
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/circleImageDay"
+                android:src="@mipmap/hour" />
+
+
+            <TextView
+                android:id="@+id/textViewReferee"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@color/black"
+                android:gravity="start|center"
+                android:text="TextView"
+                android:textColor="@color/White"
+                android:textSize="24dp"
+                android:layout_toRightOf="@+id/circleImageHour"
+                android:layout_toEndOf="@+id/circleImageHour" />
+
+            <ImageView
+                android:id="@+id/circleImageReferee"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentLeft="true"
+
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/circleImageHour"
+                android:src="@mipmap/referee" />
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/White">
+
+        <TextView
+            android:id="@+id/textViewTeamsName"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginLeft="61dp"
+            android:background="@color/White"
+            android:gravity="center"
+            android:text="Friends"
+            android:textAlignment="gravity"
+            android:textColor="@color/Black"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:layout_marginStart="61dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/textViewTeamsName2"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_alignLeft="@+id/imageViewTeams2"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/imageViewTeams2"
+            android:background="@color/White"
+            android:gravity="center"
+            android:text="Friends"
+            android:textAlignment="gravity"
+            android:textColor="@color/Black"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/imageViewTeams"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            card_view:srcCompat="@drawable/myprofile"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/textViewTeamsName"
+            android:layout_alignStart="@+id/textViewTeamsName" />
+
+        <ImageView
+            android:id="@+id/imageViewTeams2"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginEnd="103dp"
+            android:layout_marginRight="103dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            card_view:srcCompat="@drawable/myprofile"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/imageViewLeagueCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:text="VS"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,6 +1,7 @@
 package com.sgfootcal.android.footcal.Activities;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -8,35 +9,53 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.sgfjcrmpr.android.foot_cal.R;
 import com.sgfootcal.android.footcal.Adapter.FixtureAdapter;
+import com.sgfootcal.android.footcal.Adapter.OzelSpinnerAdapter;
 import com.sgfootcal.android.footcal.Internet.ApiUtils;
 import com.sgfootcal.android.footcal.Internet.FixtureDaoInterface;
+import com.sgfootcal.android.footcal.Internet.TeamsDaoInterfae;
 import com.sgfootcal.android.footcal.pojomodel.Fixture;
 import com.sgfootcal.android.footcal.pojomodel.FixtureSample;
+import com.sgfootcal.android.footcal.pojomodel.Teams;
+import com.sgfootcal.android.footcal.pojomodel.TeamsSample;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+
+
 
     private Toolbar toolbar;
     private RecyclerView rv;
@@ -44,19 +63,54 @@ public class MainActivity extends AppCompatActivity {
     private FixtureDaoInterface fixtureDaoInterface;
     private static int backButtonCount=0;
     private RelativeLayout coordinatorLayout;
-    private FloatingActionButton fabMain;
-    private SharedPreferences mSharedPrefs;
     private List<Fixture> fixtureList;
 
+    private ArrayList<String> weeks = new ArrayList<>();
+    private ArrayAdapter<String> veriAdaptoru;
+
+
+
+
+
     private AdView mAdView;
+
+    private FirebaseAuth firebaseAuth;
+
+    private NavigationView navigationView ;
+    private DrawerLayout drawer;
+
+    private TeamsDaoInterfae teamsDaoInterfae;
+    private List<Teams> teamsList;
+    private OzelSpinnerAdapter ozelSpinnerAdapter;
+    private Spinner spinnerTeams;
+    private SharedPreferences mSharedPrefs;
+    private ImageView imageView;
+
+    private TextView textviewweek;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+
+
+        if (firebaseAuth.getCurrentUser() == null) {
+            finish();
+            startActivity(new Intent(MainActivity.this, LoginScreen.class));
+        }
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        if (firebaseAuth.getCurrentUser() != null) {
+            Toast.makeText(this, "Hoşgeldiniz, " + firebaseUser.getEmail(), Toast.LENGTH_LONG).show();
+        }
         toolbar = (Toolbar) findViewById(R.id.toolBarMain);
-        coordinatorLayout=(RelativeLayout) findViewById(R.id.CoordinatorLayout);
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout_main);
+        imageView = (ImageView) findViewById(R.id.imageViewRight);
+         textviewweek = (TextView) findViewById(R.id.textviewweek);
 
 
         toolbar.setTitle("FootCal");
@@ -65,20 +119,26 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, 0, 0);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        View headerView = navigationView.inflateHeaderView(R.layout.nav_image_for_title);//Navigation Drawer için başlık tasarımı yüklenir.
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
+
 
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-
-
-        ImageView imageViewRight = (ImageView) toolbar.findViewById(R.id.imageViewRight);
-        ImageView imageViewFavs = (ImageView) toolbar.findViewById(R.id.imageViewFavs);
         TextView textViewApp = (TextView) toolbar.findViewById(R.id.title);
+        spinnerTeams = (Spinner) findViewById(R.id.spinner_weeks);
 
 
+        if (isOnline()) {
 
-        if (isOnline()){
             rv = (RecyclerView) findViewById(R.id.leagueRV);
 
             rv.setHasFixedSize(true);
@@ -86,8 +146,18 @@ public class MainActivity extends AppCompatActivity {
             rv.setLayoutManager(new LinearLayoutManager(this));
             rv.setItemAnimator(new DefaultItemAnimator());
 
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(MainActivity.this,LeaguesDetailsActivity.class));
+                }
+            });
+
+            //teamsDaoInterfae = ApiUtils.getTeamsDaoInterface();
+           // allTeams();
             fixtureDaoInterface = ApiUtils.getFixtureDaoInterface();
-            allFixtures();
+            weeks();
+
             textViewApp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -96,62 +166,64 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            imageViewRight.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent3 = new Intent(MainActivity.this,LeaguesDetailsActivity.class);
-                   /*
-                    intent3.putExtra("Characters2",fixtureList.get(0).getLeagues());
+        }
+    }
+public void weeks(){
+    weeks.add("28");
+    weeks.add("29");
+    weeks.add("30");
+    weeks.add("31");
+    weeks.add("32");
+    weeks.add("33");
+    weeks.add("34");
+
+    veriAdaptoru=new ArrayAdapter<String>
+            (this, android.R.layout.simple_list_item_1, android.R.id.text1, weeks);
 
 
-                    mSharedPrefs =  getSharedPreferences("Characters2",MODE_PRIVATE);
-                    SharedPreferences.Editor editor3 = mSharedPrefs.edit();
+    spinnerTeams.setAdapter(veriAdaptoru);
 
-                    Gson gson3 = new Gson();
-                    String json3 = gson3.toJson(fixtureList.get(0).getLeagues());
-                    editor3.putString("CharactersObject2", json3);
-                    editor3.commit();
-*/
-                    startActivity(intent3);
 
-                }
-            });
-            imageViewFavs.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(MainActivity.this,Favorites.class));
-                }
-            });
 
+    spinnerTeams.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            allFixtureByWeekId(Integer.parseInt(weeks.get(spinnerTeams.getSelectedItemPosition())));
 
         }
 
-    }
-    /*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_leagues_search, menu);
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
 
-        final MenuItem item = menu.findItem(R.id.action_search_seasons);
-        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
-        searchView.setOnQueryTextListener(this);
-        searchView.setQueryHint("Maç Bul(Ev Sahibi Takım)");
-        searchView.setBackgroundColor(Color.RED);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        if (isOnline()) {
-            searchAllFixtures(newText);
         }
-            return false;
-    }*/
+    });
+
+    }
+    public void allTeams() {
+
+        teamsDaoInterfae.allTeams().enqueue(new Callback<TeamsSample>() {
+            @Override
+            public void onResponse(Call<TeamsSample> call, Response<TeamsSample> response) {
+                if (response.isSuccessful()) {
+                    teamsList = response.body().getTeams();
+
+
+                    ozelSpinnerAdapter = new OzelSpinnerAdapter(MainActivity.this, teamsList);
+                    spinnerTeams.setAdapter(ozelSpinnerAdapter);
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<TeamsSample> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
     public boolean isOnline() {
         ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
@@ -180,37 +252,47 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    /*
-    public void searchAllFixtures(final String searchKey){
+    public void alertDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-        fixtureDaoInterface.searchAllFixtures(searchKey).enqueue(new Callback<FixtureSample>() {
-            @Override
-            public void onResponse(Call<FixtureSample> call, Response<FixtureSample> response) {
-                if (response.isSuccessful()){
-                    List<Fixture> fixtureList  = response.body().getFixtures();
+        builder.setTitle("Çıkış Ekranı");
+        builder.setMessage("Çıkış yapmak istediğinizden emin misiniz?");
+        builder.setIcon(R.drawable.left);
 
-                    fixtureAdapter = new FixtureAdapter(MainActivity.this,fixtureList);
+        builder.setNegativeButton("HAYIR", new DialogInterface.OnClickListener() {
 
-                    rv.setAdapter(fixtureAdapter);
+            public void onClick(DialogInterface dialog, int which) {
+                // Do nothing but close the dialog
+                dialog.dismiss();
 
-                }
-            }
-
-            @Override
-            public void onFailure(Call<FixtureSample> call, Throwable t) {
 
             }
         });
-    }*/
 
-    public void allFixtures(){
+        builder.setPositiveButton("EVET", new DialogInterface.OnClickListener() {
 
-        fixtureDaoInterface.allFixtures().enqueue(new Callback<FixtureSample>() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(getApplicationContext(),LoginScreen.class));
+            }
+        });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+    public void allFixtureByWeekId(int Week){
+
+        fixtureDaoInterface.allFixtureByWeekId(Week).enqueue(new Callback<FixtureSample>() {
             @Override
             public void onResponse(Call<FixtureSample> call, Response<FixtureSample> response) {
 
                 if (response.isSuccessful()){
                      fixtureList  = response.body().getFixtures();
+//                    textviewweek.setText(fixtureList.get(0).getFixture_Week()+ ".Hafta ");
+
 
                     fixtureAdapter = new FixtureAdapter(MainActivity.this,fixtureList);
 
@@ -227,6 +309,39 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+
+        int id = item.getItemId();
+
+        switch (id){
+
+            case R.id.favNav:
+                Intent intent = new Intent(MainActivity.this,Favorites.class);
+                startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+
+            case R.id.leagueNav:
+                Intent intent2 = new Intent(MainActivity.this,LeaguesDetailsActivity.class);
+                startActivity(intent2);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            case R.id.logoutNav:
+                alertDialog();
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+
+
+
+
+
+        }
+        return true;
     }
 
     public void snackBar(){

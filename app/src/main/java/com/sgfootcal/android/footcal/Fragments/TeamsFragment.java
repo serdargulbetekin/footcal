@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -62,9 +62,9 @@ public class TeamsFragment extends Fragment implements SearchView.OnQueryTextLis
             recyclerView = (RecyclerView) view.findViewById(R.id.TeamsFragmentRV);
             recyclerView.setHasFixedSize(true);
 
-            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-            VolleyVeriGonder();
+            getAllTeams();
             mAdView = (AdView) view.findViewById(R.id.adView);
             AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);
@@ -99,7 +99,7 @@ public class TeamsFragment extends Fragment implements SearchView.OnQueryTextLis
     public boolean onQueryTextSubmit(String query) {
         return false;
     }
-    public void VolleyVeriGonder(){
+    public void getAllTeams(){
 
         teamsDaoInterfae.allTeams().enqueue(new Callback<TeamsSample>() {
             @Override
@@ -133,7 +133,7 @@ public class TeamsFragment extends Fragment implements SearchView.OnQueryTextLis
                     List<Teams> teamsList  = response.body().getTeams();
 
                     teamsAdapter = new TeamsAdapter(getContext(),teamsList);
-                    recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
                     recyclerView.setAdapter(teamsAdapter);
                 }

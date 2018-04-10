@@ -4,22 +4,22 @@
 
     <item
         android:id="@+id/fav"
-        android:icon="@mipmap/a1"
+        android:icon="@drawable/hearth"
         android:title="Favorilerime Ekle"/>
 
     <item
         android:id="@+id/calendar"
-        android:icon="@mipmap/a2"
+        android:icon="@drawable/calendar"
         android:title="Takvime Ekle"
         />
     <item
         android:id="@+id/details"
-        android:icon="@mipmap/a3"
+        android:icon="@drawable/details"
         android:title="Maç Detayı"
         />
     <item
         android:id="@+id/leagues"
-        android:icon="@mipmap/a4"
+        android:icon="@mipmap/a1"
         android:title="Lige Git" />
 
 

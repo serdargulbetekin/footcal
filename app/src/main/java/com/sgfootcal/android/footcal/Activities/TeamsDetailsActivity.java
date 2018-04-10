@@ -24,6 +24,7 @@ import com.sgfootcal.android.footcal.Adapter.TeamsAdapter;
 import com.sgfootcal.android.footcal.Adapter.ViewPagerAdapter;
 import com.sgfootcal.android.footcal.Fragments.AssistFragmentSpecial;
 import com.sgfootcal.android.footcal.Fragments.FootballerFragment;
+import com.sgfootcal.android.footcal.Fragments.PointTableFragmentsSpecial;
 import com.sgfootcal.android.footcal.Fragments.RedYellowCardFragmentSpecial;
 import com.sgfootcal.android.footcal.Fragments.TeamsFixtureSpecial;
 import com.sgfootcal.android.footcal.Fragments.TopScorerFragmentSpecial;
@@ -99,6 +100,7 @@ public class TeamsDetailsActivity extends AppCompatActivity {
         viewPagerAdapter.addFragment(new TopScorerFragmentSpecial(), "Gol Krallığı");
         viewPagerAdapter.addFragment(new AssistFragmentSpecial(), "Asist Krallığı");
         viewPagerAdapter.addFragment(new RedYellowCardFragmentSpecial(), "İstatistikler");
+        viewPagerAdapter.addFragment(new PointTableFragmentsSpecial(), "Puan Durumu");
 
 
         viewPager.setAdapter(viewPagerAdapter);
